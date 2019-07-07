@@ -1,0 +1,9 @@
+[package]
+name = "deriving"
+version = "0.1.0"
+description = "Framework to make implementing custom derive easier."
+license = "Apache-2.0"
+authors = ["Wei Tang <hi@that.world>"]
+edition = "2018"
+
+[dependencies]
