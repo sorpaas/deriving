@@ -1,4 +1,4 @@
-use syn::{Field, Data, Fields, Meta, NestedMeta, Attribute, Lit};
+use syn::{Field, Data, Fields, Meta, NestedMeta, Attribute, Lit, LitStr};
 use syn::punctuated::Punctuated;
 use syn::token::Comma;
 
@@ -44,7 +44,7 @@ pub fn has_attribute(prefix: &str, attrs: &[Attribute], name: &str) -> bool {
     false
 }
 
-pub fn attribute_value(prefix: &str, attrs: &[Attribute], name: &str) -> Option<String> {
+pub fn attribute_value(prefix: &str, attrs: &[Attribute], name: &str) -> Option<LitStr> {
     for attr in attrs {
         let meta = match attr.parse_meta() {
             Ok(meta) => meta,
@@ -60,7 +60,7 @@ pub fn attribute_value(prefix: &str, attrs: &[Attribute], name: &str) -> Option<
                                 if value.ident == name {
                                     match &value.lit {
                                         Lit::Str(s) => {
-                                            return Some(s.value())
+                                            return Some(s.clone())
                                         },
                                         _ => (),
                                     }
