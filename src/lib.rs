@@ -7,7 +7,7 @@ pub fn struct_fields(data: &Data) -> Option<&Punctuated<Field, Comma>> {
         Data::Struct(ref data) => {
             match data.fields {
                 Fields::Named(ref fields) => Some(&fields.named),
-                Fields::Unnamed(ref fields) => Some(&fields.unnamed),
+                Fields::Unnamed(_) => None,
                 Fields::Unit => None,
             }
         },
