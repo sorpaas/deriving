@@ -1,6 +1,6 @@
 [package]
 name = "deriving"
-version = "0.1.2"
+version = "0.1.3"
 description = "Framework to make implementing custom derive easier."
 license = "Apache-2.0"
 authors = ["Wei Tang <hi@that.world>"]
@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 syn = { version = "0.15", features = ["extra-traits"] }
 quote = "0.6"
+proc-macro2 = "0.4"
